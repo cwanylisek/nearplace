@@ -5,12 +5,14 @@
       <div class="col-lg-8">
         <div class="card">
           <div class="card-body">
-            <p>{{ date }}&nbsp;{{ year }}&nbsp;{{ month }}&nbsp;{{ day }}</p>
-            <div class="" v-for="todo in todos">
-              <p>{{todo.thing}}
-                <input type="checkbox" v-model="todo.check">
-              </p>
-            </div>
+            <p>{{ date }}&nbsp;{{ day }}</p>
+              <draggable>
+                <div class="" v-for="todo in todos">
+                  <p>{{todo.thing}}
+                    <input type="checkbox" v-model="todo.check">
+                  </p>
+                </div>
+              </draggable>
             <div class="form">
               <div class="form-group">
                 <label>What's needs to be done</label>
@@ -27,6 +29,9 @@
 </template>
 
 <script>
+import moment from 'moment'
+import draggable from 'vuedraggable'
+
 export default {
   name: 'todo-list',
   data () {
@@ -36,11 +41,8 @@ export default {
         thing: '',
         check: false
       },
-      date: new Date(Date.now()).getDate(),
-      month: new Date(Date.now()).getMonth(+1),
-      year: new Date(Date.now()).getFullYear(),
-      day: new Date(Date.now()).getDay(),
-      asd: new Date(Date.now()).toLocaleString(),
+      day: moment().format('dddd'),
+      date: moment().format('ll'),
       todos: [
         {
           thing: 'Buy new sweatshirt',
@@ -78,6 +80,9 @@ export default {
       })
     },
   },
+  components: {
+    draggable,
+  }
 
 
 }
