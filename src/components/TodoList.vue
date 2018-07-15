@@ -15,13 +15,13 @@
                       {{todo.thing}}
                     </div>
                     <div class="col-lg-2 round">
-                      <input type="checkbox" id="checkbox" value="1" v-model="todo.check">
+                      <input type="checkbox" class="checkbox-round" value="1" v-model="todo.check">
                       <label for="checkbox"></label>
                     </div>
                   </div>
                 </div>
               </draggable>
-              <input type="checkbox" class="btn btn-secondary" v-model="showForm"></input>
+              <input type="checkbox" class="checkbox-button" value="+" v-model="showForm"></input>
             <div class="form" v-if="showForm">
               <div class="form-group">
                 <label>What's needs to be done</label>
