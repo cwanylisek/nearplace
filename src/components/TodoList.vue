@@ -29,7 +29,7 @@
               </div>
                 <button class="btn btn-primary" v-on:click="addTodo">Submit</button>
             </div>
-            <!-- testv2 -->
+            <!-- test -->
           </div>
         </div>
       </div>
